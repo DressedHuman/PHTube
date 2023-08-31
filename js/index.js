@@ -1,13 +1,11 @@
 function loadHomepage(){
-    // console.log("loading videos...");
     loadNav();
+    loadCategories();
 }
 
-
+// loading the navbar
 const loadNav = () => {
-    // console.log("loading nav bar...");
     const header = document.getElementById("header");
-    // console.log(header);
     header.innerHTML = `
         <div class="navbar bg-base-100 border-b-2 pb-8 justify-center items-center">
             <div class="navbar-start">
@@ -23,6 +21,12 @@ const loadNav = () => {
             </div>
         </div>
     `
+}
+
+
+// loading the categories buttons
+const loadCategories = () => {
+    console.log("loading categories...");
 }
 
 
