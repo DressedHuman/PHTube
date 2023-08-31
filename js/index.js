@@ -9,7 +9,7 @@ const loadNav = () => {
     const header = document.getElementById("header");
     // console.log(header);
     header.innerHTML = `
-        <div class="navbar bg-base-100">
+        <div class="navbar bg-base-100 border-b-2 pb-8 justify-center items-center">
             <div class="navbar-start">
                 <img src="images/Logo.png">
             </div>
