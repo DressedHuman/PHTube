@@ -1,1 +1,6 @@
-console.log("console from index.js")
+function loadHomepage(){
+    console.log("loading videos...");
+}
+
+
+loadHomepage();
