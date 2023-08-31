@@ -1,6 +1,8 @@
 function loadHomepage(){
-    loadNav();
-    loadCategories();
+    loadNav(); //creates and load the nav bar
+    loadCategories(); //creates and loads the category buttons and calls the toggleActiveInactive function
+    createCardsContainer(); //creates a container for the cards
+    loadAll("https://openapi.programming-hero.com/api/videos/category/1000");
 }
 
 // loading the navbar
@@ -57,5 +59,16 @@ const toggleActiveInactive = elements => {
     });
 }
 
+
+// create cards container
+const createCardsContainer = () => {
+    const main = document.getElementById("main");
+    
+    // create an empty div as the container
+    const div = document.createElement("div");
+    div.id = "cards-container";
+
+    main.appendChild(div);
+}
 
 loadHomepage();
