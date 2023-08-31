@@ -5,6 +5,6 @@ const loadAll = async getUrl => {
     // get the data
     const response = await fetch(getUrl);
     const data = await response.json();
-    console.log(data);
+    data.data.forEach(card => console.log(card));
     
 }
