@@ -67,6 +67,7 @@ const createCardsContainer = () => {
     // create an empty div as the container
     const div = document.createElement("div");
     div.id = "cards-container";
+    div.classList = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mt-10";
 
     main.appendChild(div);
 }
