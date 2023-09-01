@@ -2,7 +2,7 @@ function loadHomepage(){
     loadNav(); //creates and load the nav bar
     loadCategories('https://openapi.programming-hero.com/api/videos/categories'); //creates and loads the category buttons and calls the toggleActiveInactive function
     createCardsContainer(); //creates a container for the cards
-    loadCards(parseInt(1000));
+    loadCards(1000);
 }
 
 // loading the navbar
@@ -19,7 +19,7 @@ const loadNav = () => {
             </div>
 
             <div class="navbar-end">
-                <button id="blog" class="btn bg-[#FF1F3D] text-[#FFF] font-medium text-lg capitalize">Blog</button>
+                <button id="blog" class="btn bg-[#FF1F3D] text-[#FFF] font-medium text-lg capitalize active">Blog</button>
             </div>
         </div>
     `
@@ -82,7 +82,6 @@ const createCardsContainer = () => {
     // create an empty div as the container
     const div = document.createElement("div");
     div.id = "cards-container";
-    div.classList = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 my-10";
 
     main.appendChild(div);
 }
