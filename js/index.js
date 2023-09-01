@@ -2,7 +2,7 @@ function loadHomepage(){
     loadNav(); //creates and load the nav bar
     loadCategories('https://openapi.programming-hero.com/api/videos/categories'); //creates and loads the category buttons and calls the toggleActiveInactive function
     createCardsContainer(); //creates a container for the cards
-    loadCards("https://openapi.programming-hero.com/api/videos/category/1000");
+    loadCards(parseInt(1000));
 }
 
 // loading the navbar
@@ -56,7 +56,7 @@ const loadCategories = async (getUrl) => {
 // helper function to make a button active and the remaining others inactive
 const toggleActiveInactive = elements => {
     elements.forEach(element => {
-        element.addEventListener("click", () => {
+        element.addEventListener("click", (event) => {
             // toggling all elements inactive from active
             elements.forEach(element => {
                 element.classList.remove("active");
@@ -66,6 +66,10 @@ const toggleActiveInactive = elements => {
             // toggling the element to active from inactive
             element.classList.remove("inactive");
             element.classList.add("active");
+
+            // load the event's target category cards
+            const getId = event.target.value;
+            loadCards(parseInt(getId));
         })
     });
 }
@@ -90,6 +94,7 @@ const addCategory = (category, categoriesContainer) => {
     button.id = `category-${category.category}`;
     button.classList = "btn py-2 px-5 active:bg-[#FF1F3D]  active:text-[#FFF] font-medium text-lg capitalize inactive";
     button.innerText = category.category;
+    button.value = category.category_id;
 
     categoriesContainer.appendChild(button);
 }
