@@ -19,10 +19,17 @@ const loadNav = () => {
             </div>
 
             <div class="navbar-end">
-                <button id="blog" class="btn bg-[#FF1F3D] text-[#FFF] font-medium text-lg capitalize active" onclick="location.href = 'blog.html';">Blog</button>
+                <button id="blog" class="btn bg-[#FF1F3D] text-[#FFF] font-medium text-lg capitalize active">Blog</button>
             </div>
         </div>
-    `
+    `;
+
+    // adding event listener to the nav bar buttons
+    const sortByView = header.querySelector("#sort-by-view");
+    const viewBlog = header.querySelector("#blog");
+    
+    sortByView.addEventListener("click", (event) => sortCards(event.target.value));
+    viewBlog.addEventListener("click", () => location.href = "blog.html");
 }
 
 
