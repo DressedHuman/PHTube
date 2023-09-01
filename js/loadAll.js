@@ -24,13 +24,16 @@ const loadCard = (cardInfo, cardsContainer) => {
                 <img src="${cardInfo.authors[0].profile_picture}" style="width: 40px; height: 40px;" class="rounded-full object-cover">
                 <div class="text-left">
                     <p class="font-bold text-[#171717]">${cardInfo.title}</p>
-                    <div>
+                    <div class="flex items-center gap-3">
                         <p class="text-[#171717b3] text-sm">${cardInfo.authors[0].profile_name}</p>
                         <span id="verified"></span>
                     </div>
                 </div>
             </div>
         `;
+
+        const verifiedBadge = card.querySelector("#verified");
+        cardInfo.authors[0].verified ? verifiedBadge.innerHTML = `<b>verified</b>` : verifiedBadge.classList = "hidden";
 
         cardsContainer.appendChild(card);
     }
