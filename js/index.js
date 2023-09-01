@@ -1,6 +1,6 @@
 function loadHomepage(){
     loadNav(); //creates and load the nav bar
-    loadCategories(); //creates and loads the category buttons and calls the toggleActiveInactive function
+    loadCategories('https://openapi.programming-hero.com/api/videos/categories'); //creates and loads the category buttons and calls the toggleActiveInactive function
     createCardsContainer(); //creates a container for the cards
     loadAll("https://openapi.programming-hero.com/api/videos/category/1000");
 }
@@ -15,11 +15,11 @@ const loadNav = () => {
             </div>
 
             <div class="navbar-center">
-                <button id="sort-by-view" class="btn bg-[#25252533] text-[#252525] font-medium text-lg">Sort by view</button>
+                <button id="sort-by-view" class="btn bg-[#25252533] text-[#252525] font-medium text-lg capitalize">Sort by view</button>
             </div>
 
             <div class="navbar-end">
-                <button id="blog" class="btn bg-[#FF1F3D] text-[#FFF] font-medium text-lg">Blog</button>
+                <button id="blog" class="btn bg-[#FF1F3D] text-[#FFF] font-medium text-lg capitalize">Blog</button>
             </div>
         </div>
     `
@@ -27,17 +27,28 @@ const loadNav = () => {
 
 
 // loading the categories buttons
-const loadCategories = () => {
+const loadCategories = async (getUrl) => {
+    // get the main section of the document
     const main = document.getElementById("main");
     main.innerHTML = `
-        <div id="categories" class="w-2/5 mt-8 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-            <button id="categories-all" class="btn py-2 px-5 active:bg-[#FF1F3D]  active:text-[#FFF] font-medium text-lg active">All</button>
-            <button id="categories-music" class="btn py-2 px-5 active:bg-[#FF1F3D]  active:text-[#FFF] font-medium text-lg inactive">Music</button>
-            <button id="categories-comedy" class="btn py-2 px-5 active:bg-[#FF1F3D]  active:text-[#FFF] font-medium text-lg inactive">Comedy</button>
-            <button id="categories-drawing" class="btn py-2 px-5 active:bg-[#FF1F3D]  active:text-[#FFF] font-medium text-lg inactive">Drawing</button>
+        <div id="categories-container" class="w-2/5 mt-8 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
         </div>
     `;
-    const categoryButtons = main.querySelectorAll("#categories button");
+    
+    // add categories to the categories container
+    const response = await fetch(getUrl); //get the response from the get url
+    const data = await response.json(); //convert the data to json
+
+    const categoriesContainer = main.querySelector("#categories-container"); // get the categories-container to dynamically append the categories in it
+    data.data.forEach(category => addCategory(category, categoriesContainer));
+
+    // make the all category button active
+    const allCategory = main.querySelector("#category-All");
+    allCategory.classList.remove("inactive");
+    allCategory.classList.add("active");
+    
+    // add the event handler to all the category buttons
+    const categoryButtons = main.querySelectorAll("#categories-container button");
     toggleActiveInactive(categoryButtons);
 }
 
@@ -70,6 +81,17 @@ const createCardsContainer = () => {
     div.classList = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 my-10";
 
     main.appendChild(div);
+}
+
+
+// function to add a category to the categories-container
+const addCategory = (category, categoriesContainer) => {
+    const button = document.createElement("button");
+    button.id = `category-${category.category}`;
+    button.classList = "btn py-2 px-5 active:bg-[#FF1F3D]  active:text-[#FFF] font-medium text-lg capitalize inactive";
+    button.innerText = category.category;
+
+    categoriesContainer.appendChild(button);
 }
 
 loadHomepage();
