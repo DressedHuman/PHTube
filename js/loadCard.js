@@ -46,5 +46,21 @@ const loadPublishedDate = (cardInfo, card) => {
 
 // seconds to dates, hours, minutes converter
 const convertTime = time => {
-    return time;
+    
+    if(time/3600>0){
+        let hours = parseInt(time/3600);
+        let minutes;
+        time %= 3600;
+        time/60>0 ? minutes = parseInt(time/60) : minutes = 0
+        return `${hours}hrs ${minutes}mins ago`;
+    }
+    else if(time/60>0){
+        minutes = parseInt(time/60);
+        return `${minutes}mins ago`;
+    }
+    else{
+        return;
+    }
+
+    
 }
