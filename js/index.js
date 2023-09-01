@@ -19,7 +19,7 @@ const loadNav = () => {
             </div>
 
             <div class="navbar-end">
-                <button id="blog" class="btn bg-[#FF1F3D] text-[#FFF] font-medium text-lg capitalize active">Blog</button>
+                <button id="blog" class="btn bg-[#FF1F3D] text-[#FFF] font-medium text-lg capitalize active" onclick="location.href = 'blog.html';">Blog</button>
             </div>
         </div>
     `
