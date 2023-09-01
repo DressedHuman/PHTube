@@ -1,4 +1,4 @@
-const loadAll = async getUrl => {
+const loadCards = async getUrl => {
     const cardsContainer = document.getElementById("cards-container");
     
 

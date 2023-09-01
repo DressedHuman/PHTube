@@ -2,7 +2,7 @@ function loadHomepage(){
     loadNav(); //creates and load the nav bar
     loadCategories('https://openapi.programming-hero.com/api/videos/categories'); //creates and loads the category buttons and calls the toggleActiveInactive function
     createCardsContainer(); //creates a container for the cards
-    loadAll("https://openapi.programming-hero.com/api/videos/category/1000");
+    loadCards("https://openapi.programming-hero.com/api/videos/category/1000");
 }
 
 // loading the navbar
