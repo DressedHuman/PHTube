@@ -15,13 +15,20 @@ const loadAll = async getUrl => {
 const loadCard = (cardInfo, cardsContainer) => {
         // create a card
         const card = document.createElement("div");
+        card.classList = "w-[312px] mb-7";
         card.innerHTML = `
             <figure>
-                <img class="rounded-lg" src="${cardInfo.thumbnail}" />
+                <img class="rounded-lg h-[200px] w-full" src="${cardInfo.thumbnail}" />
             </figure>
-            <div>
-                <img src="${cardInfo.authors[0].profile_picture}" style="width: 40px; height: 40px;" class="rounded-full">
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+            <div class="flex items-start gap-3 mt-5">
+                <img src="${cardInfo.authors[0].profile_picture}" style="width: 40px; height: 40px;" class="rounded-full object-cover">
+                <div class="text-left">
+                    <p class="font-bold text-[#171717]">${cardInfo.title}</p>
+                    <div>
+                        <p class="text-[#171717b3] text-sm">${cardInfo.authors[0].profile_name}</p>
+                        <span id="verified"></span>
+                    </div>
+                </div>
             </div>
         `;
 
