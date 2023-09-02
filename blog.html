@@ -64,14 +64,37 @@
     </header>
 
     <main>
-        <div id="collapse-container">
-            <div class="collapse bg-base-200">
-                <input type="checkbox" />
-                <div class="collapse-title text-lg font-medium">
-                    Click me to show/hide content
+        <div class="md:w-5/6 lg:w-1/2 mx-auto my-7 grid gap-5">
+            <div class="card bg-base-100 shadow-xl">
+                <div class="card-body mx-auto">
+                    <h2 class="card-title mb-3 text-3xl">Let's discuss "var", "let" and "const"</h2>
+                    <p>In every programming language, there is a must common topic, variable. Variables are used to contain various types of values which can be modified or replaced with completely new values.
+                        <br><br>
+                        In Javascript, variables can be declared by three reserved keywords, such as "var", "let" and "const". Of them, "var" and "let" are of similar behavior, but the variables declared with "const" keyword has a different feature.
+                        <br><br>
+                        <span class="text-blue-700 text-[1.5em]">&emsp;"var"</span> is a global scope variable declaration keyword. The variables declared with "var" can be accessed throughout the whole body of the document. Variables declared with "var" are hoisted, that means ES6 automatically moved up only the declaration part of the variable without the assigned value. So, if you want to access a variables value which is hoisted, before the declaration, you will get the value as undefined.
+                        <br><br>
+
+                        <span class="text-blue-700 text-[1.5em]">&emsp;"let"</span> is a block scope variable declaration keyword. Variables declared with "let" keyword will only be available to accessed from the same block and inside blocks of it. Accessing let variables outside the scope will return an error.
+                        <br><br>
+                        <span class="text-blue-700 text-[1.5em]">&emsp;"const"</span> is used to declare such a variable which value can not be completely changed. If the value of a const variable is of primitive data type like number, string, booleans etc., this will behave like a constant, not variable. But if the value of the variable is of non-primitive data types like arrays, objects, etc. then the value can be modified as these data types supports this features. <span class="text-blue-700 text-[1.057em]">"const"</span> is also a block scope variable declaration keyword.
+                        <br><br>
+                        "let" and "const" variables are not hoisted, that means, when you declare variables using let and const keywords, ES6 never moves up the declaration part of the variable to the top of the document. Keep in mind that, only var variables are hoisted automatically.
+                    </p>
                 </div>
-                <div class="collapse-content text-base">
-                    <p>hello</p>
+            </div>
+            <div class="card bg-base-100 shadow-xl">
+                <div class="card-body mx-auto">
+                    <h2 class="card-title mb-3 text-3xl">Use cases of "null" and "undefined"</h2>
+                    <p>"null" and "undefined" are two different kind of data types in javascript. The variables containing the value "undefined" means that the variable has already been declared but no data was assigned to this variable yet. On the other hand, when we want to mean that a variable is declared and has a value assigned to it but the value is totally blank, we use "null" as the value of it.</p>
+                </div>
+            </div>
+            <div class="card bg-base-100 shadow-xl">
+                <div class="card-body mx-auto">
+                    <h2 class="card-title mb-3 text-3xl">Let's discuss "var", "let" and "const"</h2>
+                    <p> The elaboration of REST API is REpresentational State Transfer Application Programming Interface.
+                        <br>
+                        REST API is an architectural style for designing web services. It uses HTTP methods to perform operations on resources, which are identified by URIs. REST APIs are widely used in a variety of applications, such as content management systems, e-commerce platforms, and social media platforms.</p>
                 </div>
             </div>
         </div>

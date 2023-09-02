@@ -9,16 +9,16 @@ function loadHomepage(){
 const loadNav = () => {
     const header = document.getElementById("header");
     header.innerHTML = `
-        <div class="navbar bg-base-100 border-b-2 pb-8 justify-center items-center">
-            <div class="navbar-start">
+        <div class="navbar bg-base-100 border-b-2 pb-8 justify-center items-center md:flex-nowrap lg:flex-nowrap flex-wrap">
+            <div class="navbar-start order-1">
                 <img src="images/Logo.png">
             </div>
 
-            <div class="navbar-center">
+            <div class="navbar-center md:order-2 lg:order-2 order-3">
                 <button id="sort-by-view" class="btn bg-[#25252533] text-[#252525] font-medium text-lg capitalize">Sort by view</button>
             </div>
 
-            <div class="navbar-end">
+            <div class="navbar-end md:order-3 lg:order-3 order-2">
                 <button id="blog" class="btn bg-[#FF1F3D] text-[#FFF] font-medium text-lg capitalize active">Blog</button>
             </div>
         </div>
